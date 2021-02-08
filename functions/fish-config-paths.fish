@@ -1,4 +1,4 @@
-function fish-config-paths -a cmd -d "update completions,conf.d,functions paths"
+function fish-config-paths -a cmd -d "Update completions,conf.d,functions paths"
 
     switch $cmd
         case "" --help
