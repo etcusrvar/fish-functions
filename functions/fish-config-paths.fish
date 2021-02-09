@@ -1,5 +1,7 @@
 function fish-config-paths -a cmd -d "Update completions,conf.d,functions paths"
 
+    set -e argv[1]
+
     switch $cmd
         case "" --help
             echo "Usage: fish-config-paths COMMAND
@@ -8,9 +10,14 @@ Commands:
     add     add path(s)"
 
         case add
-            __fish-config-paths-add $argv[2..-1]
+            test -z "$argv"
+            and set argv .
+
+            __fish-config-paths-add $argv
+
         case \*
             return 1
+
     end
 
 end
